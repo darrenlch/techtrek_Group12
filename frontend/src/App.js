@@ -20,7 +20,6 @@ function App() {
           <Route path = '/customers/add'><AddCustomer/></Route>
         </Switch> 
       </Router>
-     
     </div>
   );
 }
