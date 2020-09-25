@@ -2,6 +2,25 @@ import React from 'react';
 import './MainPage.css';
 
 class MainPage extends React.Component{
+
+    constructor(props){
+        super();
+        this.state ={
+            results:[]
+        }
+    }
+
+    componentDidMount(){
+        console.log("Mounted in component did mout");
+        this.fetchCustomers();
+    }
+
+    async fetchCustomers(){
+        await fetch("http://localhost:3001/customers").then(res=>res.json()).then(customers=>{
+            this.setState({results:customers});
+        })
+    }
+
     render(){
         return(
             <div className = "mainpage">
@@ -18,33 +37,21 @@ class MainPage extends React.Component{
                         
                     </thead>
                     <tbody>
-                        <tr className = "text-center">
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>
-                                <button className = "btn btn-primary mr-2">Edit</button>
-                                <button className = "btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                        <tr className = "text-center">
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>
-                                <button className = "btn btn-primary mr-2">Edit</button>
-                                <button className = "btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                        <tr className = "text-center">
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>
-                                <button className = "btn btn-primary mr-2">Edit</button>
-                                <button className = "btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
+                        {
+                            this.state.results.map(customer=>{
+                                return(
+                                    <tr className = "text-center">
+                                        <td>{customer.customerName}</td>
+                                        <td>{customer.NRIC}</td>
+                                        <td>{customer.registrationTime}</td>
+                                        <td>
+                                            <button className = "btn btn-primary mr-2">Edit</button>
+                                            <button className = "btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
                     </tbody>
                 </table>
             </div>

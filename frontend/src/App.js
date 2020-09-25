@@ -7,6 +7,7 @@ import AddCustomer from  './components/AddCustomer.js';
 import Navbar from './components/Navbar.js';
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 function App() {
   return (
     <div className="App">
