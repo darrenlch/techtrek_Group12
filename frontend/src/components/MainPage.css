@@ -1,0 +1,18 @@
+.mainpage{
+    width:90%;
+    margin:auto;
+    display:block;
+
+    height:1000px;
+    margin-top:20px;
+    padding:30px;
+}
+
+.mainpage-title{
+    margin-right:auto;
+}
+
+.add-user{
+    margin-left: 90%;
+    margin-bottom:50px;
+}
