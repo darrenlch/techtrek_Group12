@@ -20,7 +20,7 @@ const CustomerSchema = mongoose.Schema({
   },
   registrationTime: {
     type: String,
-    default: Date.now().toString(),
+    default: moment().format("DD/MM/YYYY hh:mm:ss"),
   },
   branchCode: {
     type: Number,
