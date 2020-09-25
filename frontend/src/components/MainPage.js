@@ -1,5 +1,6 @@
 import React from 'react';
 import './MainPage.css';
+import {Link} from 'react-router-dom';
 
 class MainPage extends React.Component{
 
@@ -25,7 +26,7 @@ class MainPage extends React.Component{
         return(
             <div className = "mainpage">
                 <h1 className = "mainpage-title">Onboarded Users</h1>
-                <button className = "btn btn-primary add-user">Add New User</button>
+                <Link to = '/customers/add' className = "btn btn-primary add-user">Add New User</Link>
                 <table className = "table table-striped">
                     <thead className = "thead">
                         <tr>

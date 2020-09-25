@@ -21,6 +21,14 @@ class App extends React.Component{
     console.log("Calledin app constructor");
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+   
+  }
+
+  componentDidMount(){
+    // For checking login state
+    // setInterval(()=>{
+    //   console.log(this.state.isLogged);
+    // },1000);
   }
 
   handleLogin(){
