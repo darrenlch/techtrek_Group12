@@ -8,9 +8,7 @@ import AddCustomer from  './components/AddCustomer.js';
 function App() {
   return (
     <div className="App">
-      <Login/>
-      <MainPage/>
-      <EditCustomer/>
+      {/* add */}
       <AddCustomer/>
     </div>
   );
