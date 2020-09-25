@@ -1,0 +1,31 @@
+.container-form {
+  margin: auto;
+  padding: 13px;
+  text-align: center;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.container-username {
+  text-align: right;
+}
+
+.container-username-label {
+  text-align: left;
+}
+
+.container-password {
+  text-align: right;
+}
+
+.container-password-label {
+  text-align: left;
+}
+
+.container-remember {
+  text-align: left;
+}
+
+.container-remember-label {
+  text-align: left;
+}
