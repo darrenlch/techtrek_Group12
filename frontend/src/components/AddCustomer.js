@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 
 import axios from 'axios';
 import Customer from '../models/Customer';
+import {withRouter} from 'react-router-dom'
 
 class AddCustomer extends React.Component{
 
@@ -110,7 +111,10 @@ class AddCustomer extends React.Component{
         .then(res => {
             console.log(res);
             console.log(res.data);
+            this.props.history.push('/main');
         })
+
+        
 
     }
 
@@ -133,6 +137,6 @@ class AddCustomer extends React.Component{
 
 
 
-export default AddCustomer;
+export default withRouter(AddCustomer);
 
 
