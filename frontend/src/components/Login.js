@@ -2,49 +2,38 @@ import React from "react";
 import "./Login.css";
 
 class Login extends React.Component {
-  handleSubmitevents(event) {
-    // handle submit events
-  }
+  handleSubmitEvents = (event) => {} //add post request
+  // handle submit events
 
-  handlePasswordChange(event) {
-    //handle password change events
+  handleClearEvents = (events) => {
+    events.preventDefault();
+    //document.getElementById("container-form").reset();
   }
+  //handle clear form
 
   render() {
     return (
       <div>
-        <div>
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
           <form className="container-form">
             <p className="container-username">
-              <label className="container-username-label">
-                Login : {""}
-                <input type="text" name="username" />
-              </label>
+                <label className="container-username-label">Login : {""}<input type="text" name="username" /></label>
             </p>
             <p className="container-password">
-              <label className="container-password-label">
-                Password : {""}
-                <input type="password" name="password"></input>
-              </label>
+                <label className="container-password-label">Password : {""}<input className="password-field" type="password" name="password" ></input></label>
             </p>
             <p className="container-remember">
-              <label className="container-remember-label">Remember Me?</label>
-              <input type="checkbox"></input>
+                <label className="container-remember-label">Remember Me?</label><input className="username-field" type="checkbox"></input>
             </p>
-            <button
-              className="clear-button"
-              style={{ float: "right" }}
-              onSubmit={() => console.log("test")}
-            >
-              Clear
-            </button>
-            <button
-              className="submit-button"
-              style={{ float: "right" }}
-              onSubmit={() => console.log("test")}
-            >
-              Login
-            </button>
+            <button className="submit-button" style={{ float: "right" }} onClick={this.handleSubmitEvents.bind(this)} type="button"> Login</button>
+            <button className="clear-button" style={{ float: "right" }} onClick={this.handleClearEvents}type="button">Clear</button>
           </form>
         </div>
       </div>
