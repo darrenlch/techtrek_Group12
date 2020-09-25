@@ -45,6 +45,16 @@ app.post("/newCustomer", async (req, res) => {
   }
 });
 
+// DELETES A NEW CUSTOMER
+app.delete("/customers/:id", async (req, res) => {
+  try {
+    const deletedCustomer = await Customer.deleteOne({ _id: req.params.id });
+    res.status(200).json(deletedCustomer);
+  } catch (err) {
+    res.status(400).json({ message: err });
+  }
+});
+
 // Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () =>
   console.log("Connected to DB!")
