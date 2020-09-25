@@ -85,7 +85,7 @@ class AddCustomer extends React.Component{
 
         var customerName = this.name.current.value;
         var customerAge = this.dob.current.value;
-        var serverOfficerName = "John"
+        var serviceOfficerName = "John"
         var nric = this.nric.current.value;
         var registrationTime = new Date().toLocaleString();
         var branchCode= 7171;
@@ -97,37 +97,22 @@ class AddCustomer extends React.Component{
             productType.push(checkboxes[i].value)
         }
 
+         
 
-        // console.log(customerName);
-        // console.log(customerAge);
-        // console.log(this.calculateAge(customerAge));
-        // console.log(serverOfficerName);
-        // console.log(nric);
-        // console.log(registrationTime);
-        // console.log(branchCode);
-        // console.log(productType);
 
-        const newCustomer = {
-            customerName: customerName,
-            customerAge: customerAge,
-            serverOfficerName: serverOfficerName,
-            NRIC: nric,
-            registrationTime: registrationTime, 
-            branchCode: branchCode,
-            productType: productType
-          };
-
-        console.log(newCustomer);
-
-        axios.post(`localhost:3001/newCustomer`, { newCustomer })
+        axios.post(`http://localhost:3001/newCustomer`, { customerName: customerName,
+        customerAge: this.calculateAge(customerAge),
+        serviceOfficerName: serviceOfficerName,
+        NRIC: nric,
+        registrationTime: registrationTime, 
+        branchCode: branchCode,
+        productType: productType})
         .then(res => {
             console.log(res);
             console.log(res.data);
         })
 
     }
-
-
 
     calculateAge(birthday) { // birthday is a date
         var myDate = new Date(birthday);
