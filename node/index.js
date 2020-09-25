@@ -23,11 +23,8 @@ app.listen(PORT, () => {
 });
 
 app.post("/login", (req, res) => {
-  axios({
-    method: "post",
-    url: REMOTE_ENDPOINT + "/login",
-    data: req.body,
-  })
+  axios
+    .post(REMOTE_ENDPOINT + "/login", req.body)
     .then(({ data }) => res.send(data))
     .catch(({ response: { data: { error } } }) => res.status(error.statusCode).send(error.message));
 });
