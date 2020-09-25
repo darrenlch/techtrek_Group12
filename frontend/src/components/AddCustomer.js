@@ -5,6 +5,8 @@ import { Row, Col, Container} from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
+import axios from 'axios';
+import Customer from '../models/Customer';
 
 class AddCustomer extends React.Component{
 
@@ -49,10 +51,10 @@ class AddCustomer extends React.Component{
                                     {['checkbox'].map((type) => (
                                         <div key={`inline-${type}`} className="mb-3">
                                         <Form.Check inline label="Investor" type={type} id={`inline-${type}-1`} value="137" />
-                                        <Form.Check inline label="Investor" type={type} id={`inline-${type}-1`} value="070" />
-                                        <Form.Check inline label="Loans" type={type} id={`inline-${type}-1`} value="291" />
-                                        <Form.Check inline label="Savings" type={type} id={`inline-${type}-1`} value="969" />
-                                        <Form.Check inline label="Credit Cards" type={type} id={`inline-${type}-1`} value="555" />
+                                        <Form.Check inline label="Investor" type={type} id={`inline-${type}-2`} value="070" />
+                                        <Form.Check inline label="Loans" type={type} id={`inline-${type}-3`} value="291" />
+                                        <Form.Check inline label="Savings" type={type} id={`inline-${type}-4`} value="969" />
+                                        <Form.Check inline label="Credit Cards" type={type} id={`inline-${type}-5`} value="555" />
                                         </div>
                                     ))}
                                     </Form.Group>
@@ -88,14 +90,40 @@ class AddCustomer extends React.Component{
         var registrationTime = new Date().toLocaleString();
         var branchCode= 7171;
 
+        var productType = []
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
-        console.log(customerName);
-        console.log(customerAge);
-        console.log(this.calculateAge(customerAge));
-        console.log(serverOfficerName);
-        console.log(nric);
-        console.log(registrationTime);
-        console.log(branchCode);
+        for (var i = 0; i < checkboxes.length; i++) {
+            productType.push(checkboxes[i].value)
+        }
+
+
+        // console.log(customerName);
+        // console.log(customerAge);
+        // console.log(this.calculateAge(customerAge));
+        // console.log(serverOfficerName);
+        // console.log(nric);
+        // console.log(registrationTime);
+        // console.log(branchCode);
+        // console.log(productType);
+
+        const newCustomer = {
+            customerName: customerName,
+            customerAge: customerAge,
+            serverOfficerName: serverOfficerName,
+            NRIC: nric,
+            registrationTime: registrationTime, 
+            branchCode: branchCode,
+            productType: productType
+          };
+
+        console.log(newCustomer);
+
+        axios.post(`localhost:3001/newCustomer`, { newCustomer })
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
 
     }
 
@@ -121,3 +149,5 @@ class AddCustomer extends React.Component{
 
 
 export default AddCustomer;
+
+

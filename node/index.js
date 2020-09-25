@@ -55,9 +55,30 @@ app.delete("/customers/:id", async (req, res) => {
   }
 });
 
+// UPDATE A CUSTOMER
+app.patch("/customers/:id", async (req, res) => {
+  try {
+    const updatedCustomer = await Customer.updateOne(
+      { _id: req.params.id },
+      {
+        $set: {
+          customerName: req.body.customerName,
+          serviceOfficerName: req.body.serviceOfficerName,
+          productType: req.body.productType,
+        },
+      }
+    );
+    res.status(200).json(updatedCustomer);
+  } catch (err) {
+    res.status(400).json({ message: err });
+  }
+});
+
 // Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () =>
-  console.log("Connected to DB!")
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => console.log("Connected to DB!")
 );
 
 app.listen(PORT, () => {
@@ -68,12 +89,18 @@ app.post("/login", (req, res) => {
   axios
     .post(REMOTE_ENDPOINT + "/login", req.body)
     .then(({ data }) => res.send(data))
-    .catch(({ response: { data: { error } } }) => res.status(error.statusCode).send(error.message));
+    .catch(({ response: { data: { error } } }) =>
+      res.status(error.statusCode).send(error.message)
+    );
 });
 
 app.get("/extendSession", (req, res) => {
   axios
-    .get(REMOTE_ENDPOINT + "/extendSession", { headers: { Authorization: req.headers.authorization } })
+    .get(REMOTE_ENDPOINT + "/extendSession", {
+      headers: { Authorization: req.headers.authorization },
+    })
     .then(({ data }) => res.send(data))
-    .catch(({ response: { data: { error } } }) => res.status(error.statusCode).send(error.message));
+    .catch(({ response: { data: { error } } }) =>
+      res.status(error.statusCode).send(error.message)
+    );
 });
