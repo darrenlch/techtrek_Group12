@@ -119,7 +119,7 @@ class AddCustomer extends React.Component{
 
         console.log(newCustomer);
 
-        axios.post(`localhost:3001/newCustomer`, { newCustomer })
+        axios.post(`http://localhost:3001/newCustomer`, { newCustomer })
         .then(res => {
             console.log(res);
             console.log(res.data);

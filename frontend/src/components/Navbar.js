@@ -22,7 +22,7 @@ class Navbar extends React.Component{
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto mr-5">
-                            <li className  = "nav-item mr-3"><a className  = "nav-link text-dark up-font rounded mr-2 pr-3 pl-3" href = "about.html">About</a></li>
+                            <li className  = "nav-item mr-3"><Link to = '/main' className  = "nav-link text-dark up-font rounded mr-2 pr-3 pl-3">About</Link></li>
                             <li className = "nav-item"><Link to = '/' onClick={()=>this.handleLogoutClick()} className = "nav-link text-dark up-font rounded pr-3 pl-3">Logout</Link></li>
                         </ul>
                     </div>
