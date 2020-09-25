@@ -11,7 +11,7 @@ class MainPage extends React.Component{
     }
 
     componentDidMount(){
-        console.log("Mounted in component did mout");
+        console.log("Mounted in component did mount");
         this.fetchCustomers();
     }
 
@@ -40,7 +40,7 @@ class MainPage extends React.Component{
                         {
                             this.state.results.map(customer=>{
                                 return(
-                                    <tr className = "text-center">
+                                    <tr className = "text-center" key = {customer._id}>
                                         <td>{customer.customerName}</td>
                                         <td>{customer.NRIC}</td>
                                         <td>{customer.registrationTime}</td>

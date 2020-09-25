@@ -1,8 +1,23 @@
 import React from "react";
 import "./Login.css";
+import {withRouter} from 'react-router-dom';
 
 class Login extends React.Component {
-  handleSubmitEvents = (event) => {} //add post request
+
+    constructor(props){
+        super();
+        
+    }
+
+    componentDidMount(){
+        console.log("Login mounted");
+        
+    }
+
+  handleSubmitEvents = (event) => {
+      this.props.handleLogin();
+      this.props.history.push('/main');   
+  } //add post request
   // handle submit events
 
   handleClearEvents = (events) => {
@@ -41,4 +56,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

@@ -1,7 +1,14 @@
 import React from 'react';
 import './Navbar.css';
+import {Link} from 'react-router-dom';
 
 class Navbar extends React.Component{
+    handleLogoutClick(){
+        console.log("Logging out");
+        this.props.handleLogout();
+    }
+
+
     render(){
         return(
             <div>
@@ -17,6 +24,7 @@ class Navbar extends React.Component{
                         <ul className="navbar-nav ml-auto mr-5">
                             <li className  = "nav-item mr-3"><a className  = "nav-link text-dark up-font rounded mr-2 pr-3 pl-3" href = "about.html">About</a></li>
                             <li className  = "nav-item "><a className  = "nav-link text-dark up-font rounded pr-3 pl-3" href = "#">Logout</a></li>
+                            <Link to = '/' onClick={()=>this.handleLogoutClick()}>Test Logout</Link>
                         </ul>
                     </div>
                 </nav>
