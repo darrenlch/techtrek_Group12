@@ -28,3 +28,10 @@ app.post("/login", (req, res) => {
     .then(({ data }) => res.send(data))
     .catch(({ response: { data: { error } } }) => res.status(error.statusCode).send(error.message));
 });
+
+app.get("/extendSession", (req, res) => {
+  axios
+    .get(REMOTE_ENDPOINT + "/extendSession", { headers: { Authorization: req.headers.authorization } })
+    .then(({ data }) => res.send(data))
+    .catch(({ response: { data: { error } } }) => res.status(error.statusCode).send(error.message));
+});
