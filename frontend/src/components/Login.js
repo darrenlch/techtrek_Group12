@@ -11,11 +11,12 @@ class Login extends React.Component {
 
     componentDidMount(){
         console.log("Login mounted");
-        this.props.handleLogin();
+        
     }
 
   handleSubmitEvents = (event) => {
-      this.props.history.push('/main');
+      this.props.handleLogin();
+      this.props.history.push('/main');   
   } //add post request
   // handle submit events
 

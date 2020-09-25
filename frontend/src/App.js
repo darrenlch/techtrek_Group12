@@ -20,6 +20,7 @@ class App extends React.Component{
 
     console.log("Calledin app constructor");
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleLogin(){
@@ -29,15 +30,20 @@ class App extends React.Component{
     },()=>{
       console.log(this.state);
     })
+  }
 
-    
+  handleLogout(){
+    console.log("Logout called");
+    this.setState({
+      isLogged:false
+    })
   }
 
   render(){
     return (
       <div className="App">
-        <Navbar/>
         <Router>
+          <Navbar handleLogout = {this.handleLogout}/>
           <Switch>
             <Route path = '/' exact><Login handleLogin = {this.handleLogin}/></Route>
             <ProtectedRoute path = '/main' user = {this.state.isLogged} component={MainPage}></ProtectedRoute>
