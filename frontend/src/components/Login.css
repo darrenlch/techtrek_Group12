@@ -1,29 +1,32 @@
 .container-form {
   margin: auto;
-  padding: 13px;
+  padding: 15px;
   text-align: center;
-  border: 1px solid black;
+  border-radius: 13px;
+  border: 2px solid black;
   display: inline-block;
 }
 
 .container-username {
   text-align: right;
+  border-radius: 13px;
 }
 
 .container-username-label {
-  text-align: left;
+  text-align: right;
 }
 
 .container-password {
   text-align: right;
+  border-radius: 13px;
 }
 
 .container-password-label {
-  text-align: left;
+  text-align: right;
 }
 
-.container-remember {
-  text-align: left;
+.remember-field {
+  text-align: right;
 }
 
 .container-remember-label {
