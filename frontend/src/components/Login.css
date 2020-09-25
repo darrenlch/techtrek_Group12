@@ -1,31 +1,35 @@
-.container-form {
-  margin: auto;
-  padding: 13px;
-  text-align: center;
-  border: 1px solid black;
-  display: inline-block;
-}
 
 .container-username {
   text-align: right;
+  border-radius: 13px;
 }
 
 .container-username-label {
-  text-align: left;
+  text-align: right;
 }
 
 .container-password {
   text-align: right;
+  border-radius: 13px;
 }
 
 .container-password-label {
-  text-align: left;
+  text-align: right;
 }
 
-.container-remember {
-  text-align: left;
+.remember-field {
+  text-align: right;
 }
 
 .container-remember-label {
   text-align: left;
+}
+
+.main-form-container{
+  max-width:1000px;
+  margin:auto;
+  margin-top:100px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }

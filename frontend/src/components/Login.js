@@ -17,40 +17,48 @@ class Login extends React.Component {
   handleSubmitEvents = (event) => {
       this.props.handleLogin();
       this.props.history.push('/main');   
-  } //add post request
+  }
   // handle submit events
 
   handleClearEvents = (events) => {
     events.preventDefault();
-    //document.getElementById("container-form").reset();
+    document.getElementById("container-formid").reset();
   }
   //handle clear form
 
   render() {
     return (
       <div>
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <form className="container-form">
+            <div className = "main-form-container">
+                <form id="container-formid">
+                    <div className ="form-group">
+                        <label>Login : {""}<input className="form-control" type="text" name="username" /></label>
+                    </div>
+                    <div className ="form-group">
+                        <label>Password : {""}<input className="form-control" type="password" name="password" ></input></label>
+                    </div>
+                    <div className = "form-group">
+                        <input className="form-check-input ml-3" type="checkbox" name="checkbox"></input>
+                        <label className = "ml-5">Remember Me {""}</label>
+                    </div>
+                        <button className="btn btn-primary mr-3 ml-4"  onClick={this.handleClearEvents}type="button">Clear</button>
+                        <button className="btn btn-success"  onClick={this.handleSubmitEvents} type="button"> Login</button>
+                </form>
+            </div>
+             
+          {/* <form className="container-form" id="container-formid">
             <p className="container-username">
-                <label className="container-username-label">Login : {""}<input type="text" name="username" /></label>
+                <label className="container-username-label">Login : {""}<input className="username-field" type="text" name="username" /></label>
             </p>
             <p className="container-password">
                 <label className="container-password-label">Password : {""}<input className="password-field" type="password" name="password" ></input></label>
             </p>
             <p className="container-remember">
-                <label className="container-remember-label">Remember Me?</label><input className="username-field" type="checkbox"></input>
+                <label className="container-remember-label">Remember Me {""}</label><input className="remember-field" type="checkbox" name="checkbox"></input>
             </p>
-            <button className="submit-button" style={{ float: "right" }} onClick={this.handleSubmitEvents.bind(this)} type="button"> Login</button>
+            <button className="submit-button" style={{ float: "right" }} onClick={this.handleSubmitEvents} type="button"> Login</button>
             <button className="clear-button" style={{ float: "right" }} onClick={this.handleClearEvents}type="button">Clear</button>
-          </form>
-        </div>
+          </form> */}
       </div>
     );
   }
